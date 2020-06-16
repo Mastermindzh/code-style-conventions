@@ -1,28 +1,53 @@
-# @mastermindzh/prettier-config
+# mastermindzh' code conventions
 
-My preferred prettier configuration.
+In this repo you'll find various code convention guideline files (and some .ignore stuff).
+Most of my projects will use at least one of these but I strive to use as many as I can.
+
+**note** these are by no means definitive. Every project has different needs, treat these files as a starting point.
 
 <!-- toc -->
 
-- [Installation](#installation)
-- [Configuration](#configuration)
-  - [package.json](#packagejson)
-  - [.prettierrc.js](#prettierrcjs)
+- [repo outline](#repo-outline)
+- [@mastermindzh/prettier-config](#mastermindzhprettier-config)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+    - [package.json](#packagejson)
+    - [.prettierrc.js](#prettierrcjs)
 
 <!-- tocstop -->
 
-## Installation
+## repo outline
+
+```js
+.
+├── prettier // prettier config
+│   ├── index.js
+│   └── package.json
+├── .dockerignore // things to ignore when building dockers
+├── .editorconfig // default editor configuration
+├── .eslintignore // files to ignore when using eslint
+├── .eslintrc // default eslint config
+├── .gitignore // files to ignore when working with git
+├── LICENSE
+└── README.md
+```
+
+## @mastermindzh/prettier-config
+
+My preferred prettier configuration.
+
+### Installation
 
 Simply install the package with npm:
 
 `npm install --save-dev @mastermindzh/prettier-config`
 
-## Configuration
+### Configuration
 
-Configuring your project to use `@mastermindzh/prettier-config` can be done in several ways.  
+Configuring your project to use `@mastermindzh/prettier-config` can be done in several ways.
 The easiest is the [package.json](#packagejson) solution, the most extensible is the [.prettierrc.js](#prettierrcjs) version.
 
-### package.json
+#### package.json
 
 Simply add a "prettier" key with the package name:
 
@@ -32,7 +57,7 @@ Simply add a "prettier" key with the package name:
 }
 ```
 
-### .prettierrc.js
+#### .prettierrc.js
 
 This solution requires you to put a `.prettierrc.js` file at the root of your project with the following code:
 
@@ -40,6 +65,6 @@ This solution requires you to put a `.prettierrc.js` file at the root of your pr
 module.exports = {
   ...require("@mastermindzh/prettier-config"),
   // optional overrides:
-  jsxBracketSameLine: true
+  jsxBracketSameLine: true,
 };
 ```
